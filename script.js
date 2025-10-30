@@ -21,3 +21,36 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+const toggle = document.getElementById('themeToggle');
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  toggle.textContent =
+    document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+});
+window.scrollTo({
+  top: target.offsetTop,
+  behavior: "smooth"
+});
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const pos = card.getBoundingClientRect().top;
+    if (pos < window.innerHeight - 100) {
+      card.style.opacity = 1;
+      card.style.transform = "translateY(0)";
+      card.style.transition = "0.5s ease";
+    }
+  });
+});
+// 🌙 Dark Mode Toggle
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    themeToggle.textContent = "☀️ Light Mode";
+  } else {
+    themeToggle.textContent = "🌙 Dark Mode";
+  }
+});
